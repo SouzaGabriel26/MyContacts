@@ -40,13 +40,13 @@ export default function ContactForm({ buttonLabel }) {
   }
 
   return (
-    <Form onSubmit={(e) => handleSubmit(e)}>
+    <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Input
           placeholder="Nome"
           type="text"
           value={name}
-          onChange={(e) => handleNameChange(e)}
+          onChange={handleNameChange}
         />
       </FormGroup>
 
