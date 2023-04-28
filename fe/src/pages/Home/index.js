@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { useEffect, useState } from 'react';
 import {
   Container, InputSearchContainer, Header, ListContainer, Card,
 } from './style';
@@ -9,6 +10,19 @@ import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
 
 export default function Home() {
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/contacts')
+      .then(async (response) => {
+        const json = await response.json();
+        setContacts(json);
+      })
+      .catch((error) => {
+        console.log('erro', error);
+      });
+  }, []);
+
   return (
     <Container>
       <InputSearchContainer>
@@ -16,7 +30,11 @@ export default function Home() {
       </InputSearchContainer>
 
       <Header>
-        <strong>3 contatos</strong>
+        <strong>
+          {contacts.length}
+          {' '}
+          contatos
+        </strong>
         <Link to="/new">Novo contato</Link>
       </Header>
 
@@ -52,12 +70,3 @@ export default function Home() {
     </Container>
   );
 }
-
-fetch('http://localhost:3001/contacts')
-  .then(async (response) => {
-    const json = await response.json();
-    console.log('response', json);
-  })
-  .catch((error) => {
-    console.log('erro', error);
-  });
