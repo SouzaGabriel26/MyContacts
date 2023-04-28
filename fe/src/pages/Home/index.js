@@ -44,8 +44,9 @@ export default function Home() {
             <img src={arrow} alt="arrow icon" />
           </button>
         </header>
+      </ListContainer>
 
-        {
+      {
           contacts.map((contact) => (
             <Card key={contact.id}>
               <div className="info">
@@ -74,7 +75,7 @@ export default function Home() {
             </Card>
           ))
         }
-      </ListContainer>
+
     </Container>
   );
 }
