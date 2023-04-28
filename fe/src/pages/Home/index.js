@@ -32,8 +32,7 @@ export default function Home() {
       <Header>
         <strong>
           {contacts.length}
-          {' '}
-          contatos
+          {contacts.length === 1 ? ' contato' : ' contatos'}
         </strong>
         <Link to="/new">Novo contato</Link>
       </Header>
@@ -46,26 +45,35 @@ export default function Home() {
           </button>
         </header>
 
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Gabriel Souza</strong>
-              <small>instagram</small>
-            </div>
-            <span>gabriel@contato.com.br</span>
-            <span>(28) 99999-9999</span>
-          </div>
+        {
+          contacts.map((contact) => (
+            <Card key={contact.id}>
+              <div className="info">
+                <div className="contact-name">
+                  <strong>{contact.name}</strong>
+                  {
+                    contact.category_name
+                    && (
+                      <small>{contact.category_name}</small>
+                    )
+                  }
+                </div>
+                <span>{contact.email}</span>
+                <span>{contact.phone}</span>
+              </div>
 
-          <div className="actions">
-            <Link to="/edit/123">
-              <img src={edit} alt="Edit" />
-            </Link>
+              <div className="actions">
+                <Link to={`/edit/${contact.id}`}>
+                  <img src={edit} alt="Edit" />
+                </Link>
 
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
+                <button type="button">
+                  <img src={trash} alt="Delete" />
+                </button>
+              </div>
+            </Card>
+          ))
+        }
       </ListContainer>
     </Container>
   );
