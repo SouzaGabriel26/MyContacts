@@ -19,7 +19,7 @@ class ContactController {
       return response.status(404).json({ error: 'Contact not found' });
     }
 
-    response.json(contact);
+    return response.json(contact);
   }
 
   async store(request, response) {
@@ -42,7 +42,7 @@ class ContactController {
       name, email, phone, category_id,
     });
 
-    response.status(201).json(contact);
+    return response.status(201).json(contact);
   }
 
   async update(request, response) {
@@ -70,7 +70,7 @@ class ContactController {
       name, email, phone, category_id,
     });
 
-    response.json(contact);
+    return response.json(contact);
   }
 
   async delete(request, response) {
@@ -78,7 +78,7 @@ class ContactController {
     const { id } = request.params;
 
     await ContactsRepository.delete(id);
-    response.sendStatus(204); // No Content
+    return response.sendStatus(204); // No Content
   }
 }
 
