@@ -31,23 +31,24 @@ export default function Home() {
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   )), [contacts, searchTerm]);
 
-  useEffect(() => {
-    async function lodContacts() {
-      try {
-        setIsLoading(true);
+  async function loadContacts() {
+    try {
+      setIsLoading(true);
 
-        const contactsList = await ContactsService.listContacts(orderBy);
+      const contactsList = await ContactsService.listContacts(orderBy);
 
-        setContacts(contactsList);
-      } catch (error) {
-        console.log(error);
-        setHasError(true);
-      } finally {
-        setIsLoading(false);
-      }
+      setHasError(false);
+      setContacts(contactsList);
+    } catch (error) {
+      console.log(error);
+      setHasError(true);
+    } finally {
+      setIsLoading(false);
     }
+  }
 
-    lodContacts();
+  useEffect(() => {
+    loadContacts();
   }, [orderBy]);
 
   function handleToggleOrderBy() {
@@ -58,6 +59,10 @@ export default function Home() {
 
   function handleChangeSearchTerm(event) {
     setSearchTerm(event.target.value);
+  }
+
+  function handleTryAgain() {
+    loadContacts();
   }
 
   return (
@@ -86,23 +91,29 @@ export default function Home() {
       {hasError && (
         <ErrorContainer>
           <img src={sad} alt="Sad" />
+
           <div className="details">
             <strong>Ocorreu um erro ao obter os seus contatos!</strong>
-            <Button>Tentar novamente</Button>
+
+            <Button type="button" onClick={handleTryAgain}>
+              Tentar novamente
+            </Button>
           </div>
         </ErrorContainer>
       )}
 
-      {filteredContacts.length > 0 && (
-        <ListHeader orderBy={orderBy}>
-          <button type="button" onClick={handleToggleOrderBy}>
-            <span>Nome</span>
-            <img src={arrow} alt="arrow icon" />
-          </button>
-        </ListHeader>
-      )}
+      {!hasError && (
+        <>
+          {filteredContacts.length > 0 && (
+          <ListHeader orderBy={orderBy}>
+            <button type="button" onClick={handleToggleOrderBy}>
+              <span>Nome</span>
+              <img src={arrow} alt="arrow icon" />
+            </button>
+          </ListHeader>
+          )}
 
-      {
+          {
           filteredContacts.map((contact) => (
             <Card key={contact.id}>
               <div className="info">
@@ -131,6 +142,8 @@ export default function Home() {
             </Card>
           ))
         }
+        </>
+      )}
 
     </Container>
   );
