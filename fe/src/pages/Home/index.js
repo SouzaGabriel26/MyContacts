@@ -42,6 +42,7 @@ export default function Home() {
       setIsLoading(true);
 
       const contactsList = await ContactsService.listContacts(orderBy);
+      // const contactsList = []; await ContactsService.listContacts(orderBy);
 
       setHasError(false);
       setContacts(contactsList);
@@ -75,7 +76,7 @@ export default function Home() {
     <Container>
       <Loader isLoading={isLoading} />
 
-      {(contacts.length && !hasError) > 0 && (
+      {(contacts.length > 0 && !hasError) && (
         <InputSearchContainer>
           <input
             value={searchTerm}
