@@ -48,8 +48,7 @@ export default function Home() {
 
       setHasError(false);
       setContacts(contactsList);
-    } catch (error) {
-      console.log(error);
+    } catch {
       setHasError(true);
     } finally {
       setIsLoading(false);
