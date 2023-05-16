@@ -110,8 +110,8 @@ export default function ContactForm({ buttonLabel }) {
         >
           <option value="">Sem categoria</option>
           {
-            categories && categories.map((cat) => (
-              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            categories && categories.map((category) => (
+              <option key={category.id} value={category.id}>{category.name}</option>
             ))
           }
         </Select>
