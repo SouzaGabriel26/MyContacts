@@ -14,7 +14,7 @@ import {
   ErrorContainer,
   EmptyListContainer,
   SearchNotFoundContainer,
-} from './style';
+} from './styles';
 
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';

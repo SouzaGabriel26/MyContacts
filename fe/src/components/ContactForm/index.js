@@ -6,7 +6,7 @@ import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
 import CategoriesService from '../../services/CategoriesService';
 
-import { Form, ButtonContainer } from './style';
+import { Form, ButtonContainer } from './styles';
 
 import FormGroup from '../FormGroup';
 import Input from '../Input';
