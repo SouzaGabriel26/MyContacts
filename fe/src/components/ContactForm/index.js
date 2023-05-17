@@ -13,7 +13,7 @@ import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
 
-export default function ContactForm({ buttonLabel }) {
+export default function ContactForm({ buttonLabel, onSubmit }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -70,8 +70,9 @@ export default function ContactForm({ buttonLabel }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({
-      name, email, phone: phone.replace(/\D/g, ''), categoryId,
+
+    onSubmit({
+      name, email, phone, categoryId,
     });
   }
 
@@ -130,4 +131,5 @@ export default function ContactForm({ buttonLabel }) {
 
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
