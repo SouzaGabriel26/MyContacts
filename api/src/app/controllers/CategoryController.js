@@ -44,12 +44,11 @@ class CategoryController {
       return response.status(400).json({ error: 'Invalid category id' });
     }
 
-    const categoryExists = await CategoriesRepository.findById(id);
-
     if (!name) {
       return response.status(400).json({ error: 'Name is required' });
     }
 
+    const categoryExists = await CategoriesRepository.findById(id);
     if (!categoryExists) {
       return response.status(404).json({ error: 'Category not found' });
     }
