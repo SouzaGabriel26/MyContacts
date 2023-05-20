@@ -18,7 +18,6 @@ function App() {
         <Container>
           <Header />
           <Routes />
-          {/* <ContactsList /> */}
         </Container>
       </ThemeProvider>
     </BrowserRouter>
