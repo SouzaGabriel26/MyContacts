@@ -35,6 +35,8 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [contactBeingDeleted, setContactBeingDeleted] = useState(null);
 
   const filteredContacts = useMemo(() => contacts.filter((contact) => (
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -74,21 +76,33 @@ export default function Home() {
     loadContacts();
   }
 
+  function handleDeleteContact(contact) {
+    setContactBeingDeleted(contact);
+    setIsDeleteModalVisible(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalVisible(false);
+  }
+
+  function handleConfirmDeleteContact() {
+    // TODO
+    console.log(contactBeingDeleted.id);
+  }
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
       <Modal
-        title="Tem certeza que deseja remover o contato 'Gabriel Souza'? "
+        title={`Tem certeza que deseja remover o contato "${contactBeingDeleted?.name}"?`}
+        visible={isDeleteModalVisible}
         danger
         confirmLabel="Deletar"
-        onCancel={() => alert('Cancelou')}
-        onConfirm={() => alert('Deletou/Confirmou')}
+        onCancel={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteContact}
       >
-        <h1>asdsa</h1>
-        <h2>sdasda</h2>
-        <strong>2342342</strong>
-        <p>23312adasdas424</p>
+        <p>Esta ação não poderá ser desfeita!</p>
       </Modal>
 
       {(contacts.length > 0 && !hasError) && (
@@ -194,7 +208,10 @@ export default function Home() {
                   <img src={edit} alt="Edit" />
                 </Link>
 
-                <button type="button">
+                <button
+                  onClick={() => handleDeleteContact(contact)}
+                  type="button"
+                >
                   <img src={trash} alt="Delete" />
                 </button>
               </div>
