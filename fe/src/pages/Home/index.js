@@ -25,6 +25,7 @@ import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import Loader from '../../components/Loader/index';
 import Button from '../../components/Button';
+import Modal from '../../components/Modal';
 
 import ContactsService from '../../services/ContactsService';
 
@@ -76,6 +77,19 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        title="Tem certeza que deseja remover o contato 'Gabriel Souza'? "
+        danger
+        confirmLabel="Deletar"
+        onCancel={() => alert('Cancelou')}
+        onConfirm={() => alert('Deletou/Confirmou')}
+      >
+        <h1>asdsa</h1>
+        <h2>sdasda</h2>
+        <strong>2342342</strong>
+        <p>23312adasdas424</p>
+      </Modal>
 
       {(contacts.length > 0 && !hasError) && (
         <InputSearchContainer>
