@@ -36,17 +36,29 @@ To set up the API component locally, make sure you have Node.js installed on you
 
 1. Install the dependencies:
 
+ ```shell
+   yarn
+   ```
+
+  or
+
    ```shell
    npm install
    ```
 
 2. Start the API server:
 
+ ```shell
+   yarn dev
+   ```
+
+  or
+
    ```shell
    npm run dev
    ```
 
-   This command will start the server using Nodemon, which will automatically restart the server whenever changes are made to the code.
+This command will start the server using Nodemon, which will automatically restart the server whenever changes are made to the code.
 
 By following these steps, you should have the API component up and running locally, ready to handle API requests and interact with the PostgreSQL database.
 
