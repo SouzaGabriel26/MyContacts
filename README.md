@@ -72,6 +72,6 @@ The API component, built with Node.js, provides the backend functionality for ha
 
 The FE component, built with React.js, offers a user-friendly interface for managing contacts, including features such as adding, editing, and deleting contacts, as well as filtering contacts based on their names.
 
-Please refer to the respective `api` and `fe` folders for more detailed information about each component.
+Please refer to the respective [`api`](https://github.com/SouzaGabriel26/MyContacts/tree/main/api) and [`fe`](https://github.com/SouzaGabriel26/MyContacts/tree/main/fe) folders for more detailed information about each component.
 
 Happy managing your contacts!
