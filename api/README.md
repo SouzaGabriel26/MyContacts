@@ -36,11 +36,11 @@ To set up the API component locally, make sure you have Node.js installed on you
 
 1. Install the dependencies:
 
- ```shell
+   ```shell
    yarn
    ```
 
-  or
+    or
 
    ```shell
    npm install
@@ -48,11 +48,11 @@ To set up the API component locally, make sure you have Node.js installed on you
 
 2. Start the API server:
 
- ```shell
+   ```shell
    yarn dev
    ```
 
-  or
+    or
 
    ```shell
    npm run dev
