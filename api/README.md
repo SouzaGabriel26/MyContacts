@@ -16,6 +16,8 @@ The API component incorporates the following technologies:
 
 The API folder follows a structured organization to enhance code maintainability and modularity. Here's an overview of the folder structure:
 
+Into `src` folder:
+
 - `index.js`: The entry point file for the API server. It creates an Express server and sets up the routes defined in `routes.js`.
 - `routes.js`: Defines the API routes and their corresponding controller methods.
 - `controllers/`: Contains the controller classes responsible for handling the API logic and business rules. Each route in `routes.js` maps to a method in the corresponding controller.
