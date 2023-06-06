@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# FE (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This folder contains the source code for the FE (frontend) component of the MyContacts project. The FE is built using React.js, a popular JavaScript library for building user interfaces.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+The FE component incorporates the following technologies:
 
-### `yarn start`
+- Create React App: A popular toolchain for creating React applications with pre-configured setup and dependencies.
+- React.js: A JavaScript library for building user interfaces, providing a component-based approach to development.
+- ESLint (Airbnb configuration): A widely used JavaScript linter that helps maintain code quality and ensures adherence to coding standards.
+- PropTypes: A library used to define the types of props expected by components, helping with prop validation.
+- React Router DOM: A library that provides routing functionality to the React application, enabling navigation between different components/pages.
+- Styled Components: A CSS-in-JS library that allows writing CSS styles directly within JavaScript code, providing scoped and reusable styles.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Folder Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The FE folder follows a structured organization to enhance code maintainability and modularity. Here's an overview of the folder structure:
 
-### `yarn test`
+- `src/`: Contains the main source code for the React application.
+  - `components/`: Contains reusable and shared UI components used throughout the application.
+  - `pages/`: Contains the main pages/components of the application, representing different views or screens.
+  - `services/`: Implements a layer to handle API endpoints and communicate with the backend. For example, the `ContactsService.js` file handles interactions with the contact-related API endpoints.
+  - `hooks/`: Contains custom hooks that encapsulate reusable logic and separate concerns.
+  - `utils/`: Houses utility functions or helper modules used within the application.
+  - `App.js`: The entry point of the React application that defines the routing and structure of the application.
+- `public/`: Contains static assets, such as HTML files and images, that are used by the React application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack and Concepts
 
-### `yarn build`
+The FE component of MyContacts utilizes various technologies and concepts to enhance the efficiency and functionality of the project:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Development Dependencies: The project incorporates ESLint with the Airbnb configuration, ensuring code quality and adherence to best practices. Additionally, specific plugins are used to enhance the development experience.
+- Dependencies: The FE component utilizes dependencies such as PropTypes for prop validation, React Router DOM for routing functionality, and Styled Components for scoped and reusable styles.
+- Custom Hooks: Hooks like `useState`, `useEffect`, `useRef`, `useCallback`, `useMemo`, and `useImperativeHandle` are utilized throughout the project to improve efficiency and enhance code organization.
+- Custom Error: The project includes a custom error called `ApiError`, which provides a structured way to handle API-related errors.
+- EventManager: The `EventManager` is a custom utility module used to listen for, emit, and remove event listeners for various events within the application.
+- Separation of Concerns: The project follows a modular approach, separating functionalities into custom hooks and service layers to encapsulate logic and improve code organization.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To set up the FE component locally, ensure that you have Node.js installed on your machine. Then follow the steps outlined in the main repository's README file to clone the repository and navigate to the `fe` folder. After that, run the following commands:
 
-### `yarn eject`
+1. Install the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   yarn
+   ```
+   
+    or
+   
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Start the FE development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   yarn start
+   ```
+   
+    or
+   
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   This command will start the development server and open the application in your default browser.
 
-## Learn More
+By following these steps, you should have the FE component up and running locally, ready to interact with the API and provide a user-friendly interface for managing contacts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For more detailed information about each
