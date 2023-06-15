@@ -34,6 +34,7 @@ export default function NewContact() {
         ref={contactFormRef}
         buttonLabel="Cadastrar"
         onSubmit={handleSubmit}
+        hasCreateCategoryBtn
       />
     </>
   );
