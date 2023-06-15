@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import {
   useState, useEffect, forwardRef, useImperativeHandle,
 } from 'react';
+import { Link } from 'react-router-dom';
 
 import IsEmailValid from '../../utils/isEmailValid';
 import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
 import CategoriesService from '../../services/CategoriesService';
 
-import { Form, ButtonContainer } from './styles';
+import { Form, ButtonContainer, NewCategory } from './styles';
 
 import FormGroup from '../FormGroup';
 import Input from '../Input';
@@ -16,7 +17,7 @@ import Select from '../Select';
 import Button from '../Button';
 import useSafeAsyncState from '../../hooks/useSafeAsyncState';
 
-const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
+const ContactForm = forwardRef(({ buttonLabel, onSubmit, hasCreateCategoryBtn }, ref) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -148,6 +149,17 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
         </Select>
       </FormGroup>
 
+      {
+        (hasCreateCategoryBtn && !isLoadingCategories) && (
+          <NewCategory>
+            <Link to="/newCategory">
+              Criar Categoria
+              <span>+</span>
+            </Link>
+          </NewCategory>
+        )
+      }
+
       <ButtonContainer>
         <Button
           type="submit"
@@ -165,6 +177,11 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  hasCreateCategoryBtn: PropTypes.bool,
+};
+
+ContactForm.defaultProps = {
+  hasCreateCategoryBtn: false,
 };
 
 export default ContactForm;
