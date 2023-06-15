@@ -46,7 +46,7 @@ function NewCategory() {
 
       const newCategory = await CategoriesService.createCategory(categoryObj);
 
-      setCategories((prevState) => [...prevState, newCategory]);
+      setCategories((prevState) => ({ ...prevState, newCategory }));
 
       toast({
         type: 'success',
