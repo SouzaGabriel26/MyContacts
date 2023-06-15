@@ -11,6 +11,12 @@ class CategoriesService {
 
     return categories.map(CategoryMapper.toDomain);
   }
+
+  createCategory(category) {
+    // const body = CategoryMapper.toPersistence(category);
+
+    return this.httpClient.post('/categories', { body: category });
+  }
 }
 
 export default new CategoriesService();
