@@ -13,9 +13,9 @@ class CategoriesService {
   }
 
   createCategory(category) {
-    // const body = CategoryMapper.toPersistence(category);
+    const body = CategoryMapper.toPersistence(category);
 
-    return this.httpClient.post('/categories', { body: category });
+    return this.httpClient.post('/categories', { body });
   }
 }
 
