@@ -230,7 +230,7 @@ export default function Home() {
               </div>
 
               <div className="actions">
-                <Link to={`/edit/${contact.id}`}>
+                <Link to={`/editContact/${contact.id}`}>
                   <img src={edit} alt="Edit" />
                 </Link>
 
