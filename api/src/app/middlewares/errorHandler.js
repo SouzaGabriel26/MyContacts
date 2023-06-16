@@ -1,4 +1,4 @@
 module.exports = (error, request, response, next) => {
   console.log('Error Handler', error);
-  response.sendStatus(500);
+  response.status(500).json(error);
 };
