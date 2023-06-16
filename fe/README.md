@@ -2,6 +2,11 @@
 
 This folder contains the source code for the FE (frontend) component of the MyContacts project. The FE is built using React.js, a popular JavaScript library for building user interfaces.
 
+## Improvements
+
+New Feature:
+CRUD Functionality for Categories: I have implemented a fully functional CRUD (Create, Read, Update, Delete) system for managing categories. This feature allows users to create, update, and delete categories to better organize their contacts. You can access the category management functionality from the "New Contact" page.
+
 ## Technologies Used
 
 The FE component incorporates the following technologies:
