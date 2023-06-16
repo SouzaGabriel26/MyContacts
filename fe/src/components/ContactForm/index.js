@@ -153,7 +153,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit, hasCreateCategoryBtn },
         (hasCreateCategoryBtn && !isLoadingCategories) && (
           <NewCategory>
             <Link to="/newCategory">
-              Criar Categoria
+              Gerenciar Categorias
               <span>+</span>
             </Link>
           </NewCategory>
