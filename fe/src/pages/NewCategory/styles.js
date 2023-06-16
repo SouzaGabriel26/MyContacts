@@ -18,12 +18,12 @@ export const CategoriesList = styled.ul`
 }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.gray[900]};
+    background-color: ${({ theme }) => theme.colors.gray[200]};
     border-radius: 0.8rem;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.colors.gray[200]};
+    background-color: ${({ theme }) => theme.colors.gray[100]};
   }
 
 `;
