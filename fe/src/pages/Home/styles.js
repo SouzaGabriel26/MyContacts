@@ -38,20 +38,33 @@ export const Header = styled.header`
     font-size: 24px;
   }
 
-  a {
-    color: ${({ theme }) => theme.colors.primary.main};
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid ${({ theme }) => theme.colors.primary.main};
-    border-radius: 4px;
-    padding: 8px 16px;
-    transition: all 0.2s ease-in;
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-    &:hover {
-      background: ${({ theme }) => theme.colors.primary.main};
-      color: #fff;
+    a {
+      color: ${({ theme }) => theme.colors.primary.main};
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid ${({ theme }) => theme.colors.primary.main};
+      border-radius: 4px;
+      padding: 8px 16px;
+      transition: all 0.2s ease-in;
+      text-align: center;
+
+      &:hover {
+        background: ${({ theme }) => theme.colors.primary.main};
+        color: #fff;
+      }
+
+      &:active {
+        background: ${({ theme }) => theme.colors.primary.dark};
+      }
     }
   }
+
+
 `;
 
 export const ListHeader = styled.header`
@@ -125,6 +138,10 @@ export const Card = styled.div`
       border: none;
       margin-left: 8px;
     }
+  }
+
+  &:last-child {
+    margin-bottom: 16px;
   }
 `;
 
