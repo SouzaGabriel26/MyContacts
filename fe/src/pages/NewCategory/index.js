@@ -97,11 +97,18 @@ function NewCategory() {
         type: 'success',
         text: 'Categoria deletada com sucesso!',
       });
-    } catch {
-      toast({
-        type: 'danger',
-        text: 'Ocorreu um erro ao deletar a categoria!',
-      });
+    } catch (err) {
+      if (err.body.constraint === 'contacts_category_id_fkey') {
+        toast({
+          type: 'danger',
+          text: 'Essa categoria não pode ser excluída porque está vinculada a um ou mais usuários.',
+        });
+      } else {
+        toast({
+          type: 'danger',
+          text: 'Ocorreu um erro ao deletar a categoria!',
+        });
+      }
     } finally {
       setIsLoadingDelete(false);
     }
