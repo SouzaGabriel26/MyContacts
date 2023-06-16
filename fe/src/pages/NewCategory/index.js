@@ -9,7 +9,6 @@ import toast from '../../utils/toast';
 
 import Modal from '../../components/Modal';
 import PageHeader from '../../components/PageHeader';
-import Loader from '../../components/Loader';
 
 import {
   TitleLabel,
@@ -118,8 +117,6 @@ function NewCategory() {
   return (
     <>
 
-      <Loader isLoading={isLoadingCategories} />
-
       <Modal
         title={`Tem certeza que deseja remover o contato "${categoryBeingDeleted?.name}"?`}
         visible={isDeleteModalVisible}
@@ -149,8 +146,9 @@ function NewCategory() {
       </TitleLabel>
       )}
 
-      <CategoriesList>
-        {
+      { !isLoadingCategories && (
+        <CategoriesList>
+          {
             categories && (
               categories.map((category) => (
                 <CategoryCard key={category.id}>
@@ -174,7 +172,9 @@ function NewCategory() {
               ))
             )
           }
-      </CategoriesList>
+        </CategoriesList>
+      )}
+
     </>
   );
 }
