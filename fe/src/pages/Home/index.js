@@ -159,7 +159,11 @@ export default function Home() {
             {filteredContacts.length === 1 ? ' contato' : ' contatos'}
           </strong>
         )}
-        <Link to="/newContact">Novo contato</Link>
+
+        <div className="actions">
+          <Link to="/newContact">Novo contato</Link>
+          <Link to="/newCategory">Gerenciar categorias</Link>
+        </div>
       </Header>
 
       {hasError && (

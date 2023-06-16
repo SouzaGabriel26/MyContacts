@@ -111,6 +111,7 @@ function NewCategory() {
       }
     } finally {
       setIsLoadingDelete(false);
+      handleCloseDeleteModal();
     }
   }
 
@@ -131,7 +132,7 @@ function NewCategory() {
         <p>Esta ação não poderá ser desfeita!</p>
       </Modal>
 
-      <PageHeader title="Nova categoria" pathToReturn="/newContact" />
+      <PageHeader title="Nova categoria" />
 
       <CategoryForm
         ref={categoryFormRef}
