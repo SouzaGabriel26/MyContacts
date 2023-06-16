@@ -160,10 +160,7 @@ export default function Home() {
           </strong>
         )}
 
-        <div className="actions">
-          <Link to="/newContact">Novo contato</Link>
-          <Link to="/newCategory">Gerenciar categorias</Link>
-        </div>
+        <Link to="/newContact">Novo contato</Link>
       </Header>
 
       {hasError && (

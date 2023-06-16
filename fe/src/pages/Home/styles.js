@@ -38,11 +38,6 @@ export const Header = styled.header`
     font-size: 24px;
   }
 
-  .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
     a {
       color: ${({ theme }) => theme.colors.primary.main};
       text-decoration: none;
@@ -62,8 +57,6 @@ export const Header = styled.header`
         background: ${({ theme }) => theme.colors.primary.dark};
       }
     }
-  }
-
 
 `;
 

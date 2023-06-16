@@ -3,12 +3,13 @@ import {
   useState, useEffect, forwardRef, useImperativeHandle,
 } from 'react';
 
+import { Link } from 'react-router-dom/';
 import IsEmailValid from '../../utils/isEmailValid';
 import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
 import CategoriesService from '../../services/CategoriesService';
 
-import { Form, ButtonContainer } from './styles';
+import { Form, ButtonContainer, CategoryLinkContainer } from './styles';
 
 import FormGroup from '../FormGroup';
 import Input from '../Input';
@@ -16,7 +17,7 @@ import Select from '../Select';
 import Button from '../Button';
 import useSafeAsyncState from '../../hooks/useSafeAsyncState';
 
-const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
+const ContactForm = forwardRef(({ buttonLabel, onSubmit, hasCreateCategoryLink }, ref) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -148,6 +149,16 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
         </Select>
       </FormGroup>
 
+      {
+        hasCreateCategoryLink && (
+          <CategoryLinkContainer>
+            <Link to="/newCategory">
+              <strong>Gerenciar categorias</strong>
+            </Link>
+          </CategoryLinkContainer>
+        )
+      }
+
       <ButtonContainer>
         <Button
           type="submit"
@@ -165,6 +176,11 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  hasCreateCategoryLink: PropTypes.bool,
+};
+
+ContactForm.defaultProps = {
+  hasCreateCategoryLink: false,
 };
 
 export default ContactForm;
