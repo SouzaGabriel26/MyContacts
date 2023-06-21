@@ -5,40 +5,6 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const Header = styled.header`
-  display: flex;
-  justify-content: ${({ justifyContent }) => justifyContent};
-  align-items: center;
-  margin-top: 32px;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
-  padding-bottom: 16px;
-
-  strong {
-    font-size: 24px;
-  }
-
-    a {
-      color: ${({ theme }) => theme.colors.primary.main};
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid ${({ theme }) => theme.colors.primary.main};
-      border-radius: 4px;
-      padding: 8px 16px;
-      transition: all 0.2s ease-in;
-      text-align: center;
-
-      &:hover {
-        background: ${({ theme }) => theme.colors.primary.main};
-        color: #fff;
-      }
-
-      &:active {
-        background: ${({ theme }) => theme.colors.primary.dark};
-      }
-    }
-
-`;
-
 export const ListHeader = styled.header`
   margin-top: 24px;
 
