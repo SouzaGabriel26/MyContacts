@@ -46,7 +46,6 @@ export default function useEditCategory() {
 
       const edittedCategory = await CategoriesService.updateCategory(id, categoryObj);
 
-      categoryFormRef.current.setCategoryField(edittedCategory);
       setCategoryFieldName(edittedCategory.name);
 
       toast({
