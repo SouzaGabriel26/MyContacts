@@ -30,19 +30,6 @@ function NewCategory() {
 
   return (
     <>
-
-      <Modal
-        title={`Tem certeza que deseja remover o contato "${categoryBeingDeleted?.name}"?`}
-        visible={isDeleteModalVisible}
-        isLoading={isLoadingDelete}
-        danger
-        confirmLabel="Deletar"
-        onCancel={handleCloseDeleteModal}
-        onConfirm={handleConfirmDeleteContact}
-      >
-        <p>Esta ação não poderá ser desfeita!</p>
-      </Modal>
-
       <PageHeader title="Nova categoria" pathToReturn="/newContact" />
 
       <CategoryForm
@@ -88,6 +75,18 @@ function NewCategory() {
           }
         </CategoriesList>
       )}
+
+      <Modal
+        title={`Tem certeza que deseja remover a categoria "${categoryBeingDeleted?.name}"?`}
+        visible={isDeleteModalVisible}
+        isLoading={isLoadingDelete}
+        danger
+        confirmLabel="Deletar"
+        onCancel={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteContact}
+      >
+        <p>Esta ação não poderá ser desfeita!</p>
+      </Modal>
 
     </>
   );
