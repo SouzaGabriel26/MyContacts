@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -7,31 +7,16 @@ import Input from '../Input';
 
 import { CategoriesForm, ButtonContainer, FormGroup } from './styles';
 import Spinner from '../Spinner';
+import useCategoryForm from './useCategoryForm';
 
 const CategoryForm = forwardRef(({ buttonLabel, onSubmit, isLoading }, ref) => {
-  const [categoryName, setCategoryName] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const isCategoryNameInputInvalid = categoryName === '';
-
-  useImperativeHandle(ref, () => ({
-    setCategoryField: (category) => {
-      setCategoryName(category.name);
-    },
-    resetCategoryField: () => {
-      setCategoryName('');
-    },
-  }), []);
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-
-    await onSubmit({ categoryName });
-
-    setIsSubmitting(false);
-  }
+  const {
+    handleSubmit,
+    categoryName,
+    setCategoryName,
+    isSubmitting,
+    isCategoryNameInputInvalid,
+  } = useCategoryForm(onSubmit, ref);
 
   return (
     <CategoriesForm onSubmit={handleSubmit}>
