@@ -1,8 +1,10 @@
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+
 import NewContact from './pages/NewContact';
 import EditContact from './pages/EditContact';
+
 import NewCategory from './pages/NewCategory';
 import EditCategory from './pages/EditCategory';
 
