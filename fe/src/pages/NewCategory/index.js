@@ -20,7 +20,7 @@ function NewCategory() {
     isDeleteModalVisible,
     isLoadingDelete,
     handleCloseDeleteModal,
-    handleConfirmDeleteContact,
+    handleConfirmDeleteCategory,
     categoryFormRef,
     handleCategorySubmit,
     isLoadingCategories,
@@ -83,7 +83,7 @@ function NewCategory() {
         danger
         confirmLabel="Deletar"
         onCancel={handleCloseDeleteModal}
-        onConfirm={handleConfirmDeleteContact}
+        onConfirm={handleConfirmDeleteCategory}
       >
         <p>Esta ação não poderá ser desfeita!</p>
       </Modal>

@@ -66,7 +66,7 @@ export default function useNewCategory() {
     setCategoryBeingDeleted(null);
   }
 
-  async function handleConfirmDeleteContact() {
+  async function handleConfirmDeleteCategory() {
     try {
       setIsLoadingDelete(true);
 
@@ -105,7 +105,7 @@ export default function useNewCategory() {
     isDeleteModalVisible,
     isLoadingDelete,
     handleCloseDeleteModal,
-    handleConfirmDeleteContact,
+    handleConfirmDeleteCategory,
     categoryFormRef,
     handleCategorySubmit,
     isLoadingCategories,
